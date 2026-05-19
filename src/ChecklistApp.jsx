@@ -1,226 +1,237 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const ROUTINES = {
   "Öppning Inne": {
-    icon: "🏠",
     color: "#F59E0B",
     sections: {
       "Kök": [
         "Ta bort all ren disk",
         "Sätt på ölen",
-        "Starta glassmaskin",
-        "Sätt i påsar i sopptunnor",
+        "Starta glassmaskinen",
+        "Sätt i påsar i sopptunnorna",
       ],
       "Baren": [
-        "Fylla dryckeskylen",
+        "Fyll på dryckeskylskåpet",
         "Torka rent barens ytor",
-        "Plocka i ordning bland allt som ligger i baren",
-        "Tända ljusslinga / en lampa",
-        "Sätta på musiken",
+        "Plocka i ordning i baren",
+        "Tänd ljusslinga och lampor",
+        "Sätt på musiken",
         "Testa systemet",
         "Fyll på ölglas",
       ],
       "Restaurangen": [
-        "Fyll på servetter/våtservetter",
+        "Fyll på servetter och våtservetter",
         "Fyll på gafflar",
-        "Fylla upp vattenkaraffer",
-        "Torka alla borden",
-        "Sätta i ljusslingan",
+        "Fyll på vattenkaraffer",
+        "Torka alla bord",
+        "Koppla in ljusslingan",
         "Öppna alla dörrar",
-        "Tända alla batteriljus",
+        "Tänd alla batteriljus",
         "Ställ ut uteserveringen",
-        "Häng upp öppningskyltar",
+        "Sätt upp öppningsskyltar",
       ],
       "Disken": [
-        "Sätt på elen till båda maskiner",
+        "Slå på strömmen till båda maskiner",
         "Starta diskmaskinen",
-        "Fyll en skål med vatten och Yes för bestik",
+        "Fyll en skål med vatten och diskmedel för bestick",
       ],
     },
   },
   "Stängning Inne (vardag)": {
-    icon: "🔒",
     color: "#6366F1",
     sections: {
       "Kök": [
         "Torka rent alla bänkar",
-        "Torka golv",
-        "Tvätta golvbrunnen",
-        "Städa rent handfaten / runt om handfaten",
-        "Slänga alla sopor",
-        "Stänga av öl",
-        "Stänga av glassmaskinen",
-        "Stänga av kaffemaskinen",
+        "Torka golvet",
+        "Rengör golvbrunnen",
+        "Rengör handfatet och ytan runtomkring",
+        "Släng alla sopor",
+        "Stäng av ölen",
+        "Stäng av glassmaskinen",
+        "Stäng av kaffemaskinen",
       ],
       "Baren": [
-        "Fylla dryckeskylen",
-        "Diska rent droppfat från ölen",
+        "Fyll på dryckeskylskåpet",
+        "Diska droppfatet under öltappen",
         "Torka rent barens ytor",
-        "Plocka i ordning bland allt som ligger i baren",
-        "Släcka ljusslinga / en lampa",
-        "Stänga av musiken",
+        "Plocka i ordning i baren",
+        "Släck ljusslingan och lamporna",
+        "Stäng av musiken",
       ],
       "Restaurangen": [
-        "Fyll på servetter/våtservetter",
+        "Fyll på servetter och våtservetter",
         "Fyll på gafflar",
-        "Diska rent vattenkaraffer",
-        "Torka alla borden",
-        "Dra ut ljusslingan",
+        "Diska vattenkaraferna",
+        "Torka alla bord",
+        "Koppla ur ljusslingan",
         "Lås alla dörrar",
-        "Släcka alla batteriljus",
+        "Släck alla batteriljus",
         "Ta in allt från uteserveringen",
       ],
       "Disken": [
         "Diska rent allt",
-        "Torka av diskbänk + ytor runt omkring",
-        "Gör rent vattenlås/brun samt under bänken",
-        "Tvätta rent filter i diskmaskin",
-        "Släng gamla disktrasor + disksvampar",
-        "Slänga sopor",
-        "Slänga tomglas",
-        "Skura golv",
-        "Gör rent i diskmaskinen noga",
-        "Stäng av elen till båda diskmaskinerna",
+        "Torka av diskbänken och ytor runtomkring",
+        "Rengör vattenlås och golvbrunn samt under bänken",
+        "Tvätta filtret i diskmaskinen",
+        "Släng gamla disktrasor och disksvampar",
+        "Släng soporna",
+        "Släng tomglasen",
+        "Skura golvet",
+        "Rengör diskmaskinen noga",
+        "Slå av strömmen till båda diskmaskinerna",
       ],
     },
   },
   "Stängning Inne (söndag)": {
-    icon: "⭐",
     color: "#EC4899",
     sections: {
       "Kök": [
         "Torka rent alla bänkar",
-        "Torka golv, extra noggrant",
-        "Torka kylar/frys på utsidan (extra rent)",
-        "Torka kylarna invändigt + alla hyllplan",
-        "Torka av hyllor i köket",
-        "Tvätta golvbrunnen/vattenlås",
-        "Städa rent handfaten / runt om handfaten",
-        "Slänga alla sopor",
-        "Gör rent/stäng av kaffebryggare",
-        "Stänga av öl",
-        "Stänga av glassmaskinen",
+        "Torka golvet extra noggrant",
+        "Torka av kylarnas och frysets utsidor",
+        "Torka kylarna invändigt, inklusive alla hyllplan",
+        "Torka av hyllorna i köket",
+        "Rengör golvbrunn och vattenlås",
+        "Rengör handfatet och ytan runtomkring",
+        "Släng alla sopor",
+        "Rengör och stäng av kaffebryggaren",
+        "Stäng av ölen",
+        "Stäng av glassmaskinen",
         "Ta hand om maten från vagnen",
-        "Ställa in smör i kyl",
-        "Kolla så att kylarna är stängda",
+        "Ställ in smöret i kylen",
+        "Kontrollera att alla kylar är stängda",
       ],
       "Baren": [
-        "Fylla dryckeskylen",
-        "Diska droppfat från ölen",
+        "Fyll på dryckeskylskåpet",
+        "Diska droppfatet under öltappen",
         "Torka rent barens ytor",
-        "Plocka i ordning bland allt som ligger i baren",
-        "Inventera läsk/alkohol",
-        "Släcka ljusslinga / en lampa",
-        "Stänga av musiken",
-        "Stäng av woki toki",
-        "Dra ur laddare till högtalare/lampor",
+        "Plocka i ordning i baren",
+        "Inventera läsk och alkohol",
+        "Släck ljusslingan och lamporna",
+        "Stäng av musiken",
+        "Stäng av walkie-talkin",
+        "Dra ur laddare till högtalare och lampor",
       ],
       "Restaurangen": [
-        "Fyll på servetter/våtservetter",
+        "Fyll på servetter och våtservetter",
         "Fyll på gafflar",
-        "Diska rent vattenkaraffer noga",
-        "Torka alla borden",
-        "Dammsuga i restaurangen",
+        "Diska vattenkaraferna noga",
+        "Torka alla bord",
+        "Dammsug restaurangen",
         "Skura golvet i restaurangen",
-        "Dra ut ljusslingan",
+        "Koppla ur ljusslingan",
         "Lås alla dörrar",
-        "Släcka alla batteriljus",
+        "Släck alla batteriljus",
         "Ta in allt från uteserveringen",
       ],
       "Disken": [
         "Diska rent allt",
-        "Torka av diskbänk + ytor runt omkring",
-        "Gör rent vattenlås/brun samt under bänken",
-        "Tvätta rent filter i diskmaskin",
-        "Släng gamla disktrasor + disksvampar",
-        "Slänga sopor",
-        "Slänga tomglas",
-        "Skura golv",
-        "Gör rent i diskmaskinen noga",
+        "Torka av diskbänken och ytor runtomkring",
+        "Rengör vattenlås och golvbrunn samt under bänken",
+        "Tvätta filtret i diskmaskinen",
+        "Släng gamla disktrasor och disksvampar",
+        "Släng soporna",
+        "Släng tomglasen",
+        "Skura golvet",
+        "Rengör diskmaskinen noga",
       ],
     },
   },
   "Öppning Vagnen": {
-    icon: "🚚",
     color: "#10B981",
     sections: {
-      "Pommes Station": [
-        "Fyll fritöserna med olja (ny i höger, gammal i vänster)",
-        "Starta höger fritös på 190°C – 30 min innan öppning",
-        "Starta vänster fritös på 170°C – 30 min innan öppning",
-        "Fyll 14L plastlådan med pommes",
+      "Pommesstationen": [
+        "Fyll fritöserna med olja (ny olja i höger, gammal i vänster)",
+        "Starta höger fritös på 190 °C – 30 min innan öppning",
+        "Starta vänster fritös på 170 °C – 30 min innan öppning",
+        "Fyll 14 L-plastlådan med pommes frites",
         "Ta fram en låda majs",
-        "Ta fram jalla mayo",
-        "Plocka ut pommes-påsar ur kartong, lägg i stor plastlåda",
-        "Kolla redskap: 2 fritöskorgar, corn ribs-skål, pommes-skål",
-        "Kolla redskap: 3 skedar, 6 st 1/6 kantin, sax, mostrå, TA-lådor",
-        "Fyll 1/6 kantiner med: lök, örter, riven ost, pulserad gurka, corn ribs-krydda",
+        "Ta fram jalapeñomayo",
+        "Plocka ut pommes frites-påsar ur kartongen och lägg i stor plastlåda",
+        "Kontrollera redskap: 2 fritöskorgar, skål för corn ribs, skål för pommes frites",
+        "Kontrollera redskap: 3 skedar, 6 st 1/6-kantiner, sax, moussé, take away-lådor",
+        "Fyll 1/6-kantinerna med: lök, örter, riven ost, hackad gurka, corn ribs-krydda",
       ],
-      "Bröd Station": [
-        "Starta brödbordet ca 30 min innan öppning",
-        "Fyll upp stora plastlådan med bröd",
-        "Kolla mat: smör 4 flaskor, HB-bröd 2 kartonger, glutenfritt bröd 2 paket",
-        "Kolla mat: korvbröd 3–4 paket, VEG-ost 2 paket",
+      "Brödstationen": [
+        "Starta brödvärmarbordet ca 30 min innan öppning",
+        "Fyll den stora plastlådan med bröd",
+        "Kontrollera mat: smör 4 flaskor, hamburgerbröd 2 kartonger, glutenfritt bröd 2 paket",
+        "Kontrollera mat: korvbröd 3–4 paket, vegansk ost 2 paket",
       ],
-      "Steckbord Station": [
-        "Starta steckborden 30 min innan öppning",
-        "Fyll på pepparströare",
-        "Kolla redskap: 2 droppkoppar, 2 smältkupoler, flippskrapa, skrapa",
-        "Kolla redskap: smash-spade, ¼ kantin, aluminiumfolie, knappar",
+      "Stekbordsstationen": [
+        "Starta stekborden 30 min innan öppning",
+        "Fyll på pepparkvarnar och saltströare",
+        "Kontrollera redskap: 2 droppkoppar, 2 smältkupoler, stekspade, skrapa",
+        "Kontrollera redskap: smash-spade, 1/4-kantin, aluminiumfolie, tryckknappar",
       ],
       "Luckan": [
-        "Se till att båda kylarna är på",
+        "Kontrollera att båda kylarna är påslagna",
         "Starta värmelampan 30 min innan öppning",
         "Öppna luckan",
-        "Tänd ljusslinga",
+        "Tänd ljusslingan",
         "Sätt i gasoltuberna",
-        "Starta iPaden",
-        "Starta hokitokisarna",
-        "Kolla mat: HB-cheddar 6 paket, extra lök, extra VEG-ost, extra pulserad gurka",
-        "Kolla mat: extra örter, extra riven ost, B-ketchup, B-korv, korv, kött",
-        "Kolla redskap: pipflaksa med vatten, brickor, påsar, hamburgelådor, hamburgefickor",
+        "Starta surfplattan",
+        "Starta walkie-talkiesarna",
+        "Kontrollera mat: cheddar 6 paket, extra lök, extra vegansk ost, extra hackad gurka",
+        "Kontrollera mat: extra örter, extra riven ost, ketchup, bönkorv, korv, kött",
+        "Kontrollera redskap: sprayflaska med vatten, brickor, påsar, hamburgerlådor, hamburgerfickor",
       ],
     },
   },
 };
 
-const sectionIcons = {
-  "Kök": "👨‍🍳",
-  "Baren": "🍺",
-  "Restaurangen": "🍽️",
-  "Disken": "🫧",
-  "Pommes Station": "🍟",
-  "Bröd Station": "🍞",
-  "Steckbord Station": "🔥",
-  "Luckan": "🪟",
-};
+function getTodayKey(routineName) {
+  const today = new Date().toISOString().slice(0, 10);
+  return `checklist:${routineName.replace(/\s+/g, "_")}:${today}`;
+}
+
+function buildInitialState(sections) {
+  const init = {};
+  Object.entries(sections).forEach(([sec, items]) => {
+    items.forEach((_, i) => { init[`${sec}-${i}`] = false; });
+  });
+  return init;
+}
 
 function useChecklist(routineName, sections) {
   const totalItems = Object.values(sections).flat().length;
+  const storageKey = getTodayKey(routineName);
+
   const [checked, setChecked] = useState(() => {
-    const init = {};
-    Object.entries(sections).forEach(([sec, items]) => {
-      items.forEach((_, i) => { init[`${sec}-${i}`] = false; });
-    });
-    return init;
+    const base = buildInitialState(sections);
+    try {
+      const saved = localStorage.getItem(storageKey);
+      if (saved) return { ...base, ...JSON.parse(saved) };
+    } catch (_) {}
+    return base;
   });
 
-  const toggle = (key) => setChecked(prev => ({ ...prev, [key]: !prev[key] }));
-  const reset = () => setChecked(prev => {
-    const next = {};
-    Object.keys(prev).forEach(k => { next[k] = false; });
+  const save = (next) => {
+    try { localStorage.setItem(storageKey, JSON.stringify(next)); } catch (_) {}
+  };
+
+  const toggle = (key) => setChecked(prev => {
+    const next = { ...prev, [key]: !prev[key] };
+    save(next);
+    return next;
+  });
+
+  const reset = () => setChecked(() => {
+    const next = buildInitialState(sections);
+    save(next);
     return next;
   });
 
   const doneCount = Object.values(checked).filter(Boolean).length;
   const progress = totalItems > 0 ? Math.round((doneCount / totalItems) * 100) : 0;
 
-  return { checked, toggle, reset, doneCount, totalItems, progress };
+  return { checked, toggle, reset, doneCount, totalItems, progress, loaded: true };
 }
 
 function RoutineView({ name, routine, onBack }) {
-  const { checked, toggle, reset, doneCount, totalItems, progress } = useChecklist(name, routine.sections);
+  const { checked, toggle, reset, doneCount, totalItems, progress, loaded } = useChecklist(name, routine.sections);
   const done = progress === 100;
+  const doneColor = "#10B981";
 
   return (
     <div style={{ minHeight: "100vh", background: "#0f0f0f", color: "#f5f5f5", fontFamily: "'DM Sans', sans-serif" }}>
@@ -241,10 +252,17 @@ function RoutineView({ name, routine, onBack }) {
           fontSize: 22, lineHeight: 1, padding: "4px 8px", borderRadius: 6,
           display: "flex", alignItems: "center",
         }}>←</button>
-        <span style={{ fontSize: 22 }}>{routine.icon}</span>
+        {/* Color accent bar instead of icon */}
+        <div style={{
+          width: 4, height: 32, borderRadius: 99,
+          background: routine.color,
+          flexShrink: 0,
+        }} />
         <div style={{ flex: 1 }}>
           <div style={{ fontWeight: 700, fontSize: 17, letterSpacing: "-0.02em" }}>{name}</div>
-          <div style={{ fontSize: 12, color: "#666", marginTop: 2 }}>{doneCount}/{totalItems} klara</div>
+          <div style={{ fontSize: 12, color: "#666", marginTop: 2 }}>
+            {loaded ? `${doneCount}/${totalItems} klara` : "Laddar…"}
+          </div>
         </div>
         <button onClick={reset} style={{
           background: "#2a2a2a", border: "none", color: "#aaa", cursor: "pointer",
@@ -257,13 +275,13 @@ function RoutineView({ name, routine, onBack }) {
       <div style={{ background: "#1a1a1a", padding: "12px 20px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6, fontSize: 12, color: "#666" }}>
           <span>Framsteg</span>
-          <span style={{ color: done ? "#10B981" : routine.color, fontWeight: 700 }}>{progress}%</span>
+          <span style={{ color: done ? doneColor : routine.color, fontWeight: 700 }}>{progress}%</span>
         </div>
         <div style={{ height: 6, background: "#2a2a2a", borderRadius: 99, overflow: "hidden" }}>
           <div style={{
             height: "100%",
             width: `${progress}%`,
-            background: done ? "#10B981" : routine.color,
+            background: done ? doneColor : routine.color,
             borderRadius: 99,
             transition: "width 0.4s ease",
           }} />
@@ -271,10 +289,10 @@ function RoutineView({ name, routine, onBack }) {
         {done && (
           <div style={{
             marginTop: 10, background: "#10B98115", border: "1px solid #10B98140",
-            borderRadius: 8, padding: "8px 14px", fontSize: 13, color: "#10B981",
+            borderRadius: 8, padding: "8px 14px", fontSize: 13, color: doneColor,
             textAlign: "center", fontWeight: 600,
           }}>
-            ✅ Alla uppgifter klara!
+            Alla uppgifter klara!
           </div>
         )}
       </div>
@@ -283,19 +301,20 @@ function RoutineView({ name, routine, onBack }) {
       <div style={{ padding: "16px 16px 40px" }}>
         {Object.entries(routine.sections).map(([section, items]) => {
           const sectionDone = items.filter((_, i) => checked[`${section}-${i}`]).length;
+          const allDone = sectionDone === items.length;
           return (
             <div key={section} style={{ marginBottom: 16 }}>
               <div style={{
-                display: "flex", alignItems: "center", gap: 8,
+                display: "flex", alignItems: "center", gap: 10,
                 padding: "10px 14px",
                 background: "#1a1a1a",
                 borderRadius: "10px 10px 0 0",
                 borderBottom: "1px solid #2a2a2a",
+                borderLeft: `3px solid ${allDone ? doneColor : routine.color}`,
               }}>
-                <span style={{ fontSize: 16 }}>{sectionIcons[section] || "📋"}</span>
                 <span style={{ fontWeight: 700, fontSize: 14, letterSpacing: "-0.01em", flex: 1 }}>{section}</span>
                 <span style={{
-                  fontSize: 11, color: sectionDone === items.length ? "#10B981" : "#555",
+                  fontSize: 11, color: allDone ? doneColor : "#555",
                   fontWeight: 600,
                 }}>{sectionDone}/{items.length}</span>
               </div>
@@ -331,7 +350,11 @@ function RoutineView({ name, routine, onBack }) {
                         flexShrink: 0,
                         transition: "all 0.15s",
                       }}>
-                        {isChecked && <span style={{ fontSize: 12, color: "#fff", lineHeight: 1 }}>✓</span>}
+                        {isChecked && (
+                          <svg width="11" height="9" viewBox="0 0 11 9" fill="none">
+                            <path d="M1 4L4 7.5L10 1" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
                       </div>
                       <span style={{
                         fontSize: 14,
@@ -368,7 +391,6 @@ export default function App() {
         padding: "40px 20px 28px",
         borderBottom: "1px solid #1e1e1e",
       }}>
-        <div style={{ fontSize: 28, marginBottom: 8 }}>📋</div>
         <h1 style={{
           fontSize: 28, fontWeight: 800, margin: 0,
           letterSpacing: "-0.04em", lineHeight: 1.1,
@@ -392,6 +414,7 @@ export default function App() {
               style={{
                 background: "#171717",
                 border: "1px solid #222",
+                borderLeft: `4px solid ${routine.color}`,
                 borderRadius: 14,
                 padding: "18px 20px",
                 cursor: "pointer",
@@ -403,26 +426,23 @@ export default function App() {
                 gap: 16,
                 transition: "background 0.15s, border-color 0.15s",
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = "#1e1e1e"; e.currentTarget.style.borderColor = "#333"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "#171717"; e.currentTarget.style.borderColor = "#222"; }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#1e1e1e"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#171717"; }}
             >
-              {/* Color dot */}
+              {/* Color swatch block instead of icon */}
               <div style={{
-                width: 48, height: 48, borderRadius: 12,
-                background: `${routine.color}20`,
-                border: `1.5px solid ${routine.color}50`,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 22, flexShrink: 0,
-              }}>
-                {routine.icon}
-              </div>
+                width: 10, height: 40, borderRadius: 4,
+                background: routine.color,
+                flexShrink: 0,
+                opacity: 0.85,
+              }} />
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 700, fontSize: 16, letterSpacing: "-0.02em", marginBottom: 4 }}>{name}</div>
                 <div style={{ fontSize: 12, color: "#555" }}>
                   {sectionCount} avsnitt · {total} uppgifter
                 </div>
               </div>
-              <div style={{ color: "#333", fontSize: 18 }}>›</div>
+              <div style={{ color: "#444", fontSize: 18 }}>›</div>
             </button>
           );
         })}
