@@ -547,11 +547,11 @@ export default function App() {
     <div style={{ minHeight: "100vh", background: "#0f0f0f", color: "#f5f5f5", fontFamily: "'DM Sans', sans-serif" }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-      <div style={{ padding: "40px 20px 28px", borderBottom: "1px solid #1e1e1e" }}>
+      <div style={{ padding: "40px 20px 28px", borderBottom: "1px solid #fff" }}>
         <h1 style={{ fontSize: 28, fontWeight: 800, margin: 0, letterSpacing: "-0.04em", lineHeight: 1.1 }}>
           Rutiner
         </h1>
-        <p style={{ color: "#555", fontSize: 14, marginTop: 6, marginBottom: 0 }}>
+        <p style={{ color: "#fff", fontSize: 14, marginTop: 6, marginBottom: 0 }}>
           Välj en rutin för att börja bocka av
         </p>
       </div>
